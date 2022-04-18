@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <style>
+            .btn
+            {
+                float: left;
+                overflow: hidden;
+                background-color: rgb(143, 89, 19);
+                position:fixed;
+                top: 0;
+                width: 99%;
+                border-radius: 12px;
+            }
+            
+            .btn a
+            {
+                float: left;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                color: black;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                display: block 
+            }
+
+            .hover:hover 
+            {
+                color:white;
+                background-color: rgb(61, 36, 3);
+                transition-duration: 0.5s;
+                border-radius: 12px;
+            }
+            .title{
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                text-align: center;
+                margin-top: 4%;
+                background-color: rgb(143, 89, 19);
+                margin-left: 15%;
+                margin-right: 15%;
+                border-radius: 20px;
+                color: white;
+            }
+            hr{
+                margin-top: -1%;
+                height: 5px;
+                width: 70%;
+                background: rgb(61,36,3);
+                text-decoration: none;
+                border-radius: 20px;
+                border-color: black;
+            }
+            .SDG1{
+                width: 20%;
+                height: 20%;
+                margin-left: 10%;
+                margin-top: 3%;
+            }
+            .funFact{
+                position: absolute;
+                margin-top: -20%;
+                margin-left: 30%;
+            }
+
+            h3{
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+        </style>
+        
+    </head>
+    <body>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="btn">
+            <a href="Homepage.html" class="hover"><i class="fa fa-fw fa-home"></i>Home</a>
+            <a href="Poverty.html" class="hover">Poverty</a>
+            <a href="Hunger.html" class="hover">Hunger</a>
+        </div>
+        <h1 class="title">Hunger</h1>
+        <hr>
+        <img src="hungerSDG.png" class="SDG1">
+        <div class="funFact">
+            <h3>Interesting Fact: 1 in 6 children in Canada are affected by food security issues.</h3>
+        </div>
+        <hr style="margin-top: 2%;">
+        <canvas id="hungerChart" width="70%" height="40%"></canvas>
+        <script type="text/javascript">
+            time = [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017];
+            population = [833, 846, 854, 841, 819, 778, 737, 710, 690, 669, 653, 646, 642, 643, 646, 654, 663];
+
+            new Chart("hungerChart", 
+            {
+                type: "line",
+                data: 
+                {
+                    labels: time,
+                    datasets: 
+                    [{
+                        label: "In Millions, Individuals worldwide who are undernourished.",
+                        fill: false,
+                        lineTension: 0,
+                        backgroundColor: "rgba(120,120,0,1.0)",
+                        borderColor: "rgba(120,200,0,0.5)",
+                        data: population
+                    }]
+                },
+                options: 
+                {
+                    legend: 
+                    {
+                        display: true,
+                        position: "right"
+                    },
+                    scales: 
+                    {
+                        yAxes: 
+                        [{
+                            scaleLabel: {display: true,labelString: 'Population in millions of individuals who are undernourished worldwide.'}
+                        }],
+                        xAxes: 
+                        [{
+                            scaleLabel: {display: true,labelString: 'Year'}
+                        }]
+                    },
+                    title: 
+                    {
+                        display: true,
+                        text: "Amount in millions of people who are undernourished from 2001 to 2017"
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

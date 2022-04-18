@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <style>
+            .btn
+            {
+                float: left;
+                overflow: hidden;
+                background-color: rgb(200, 0, 23);
+                position:fixed;
+                top: 0;
+                width: 99%;
+                border-radius: 12px;
+            }
+            
+            .btn a
+            {
+                float: left;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                color: black;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                display: block 
+            }
+
+            .hover:hover 
+            {
+                color:white;
+                background-color: rgb(120,0,0);
+                transition-duration: 0.5s;
+                border-radius: 12px;
+            }
+            .title{
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                text-align: center;
+                margin-top: 4%;
+                background-color: rgb(200, 0, 23);
+                margin-left: 15%;
+                margin-right: 15%;
+                border-radius: 20px;
+                color: white;
+            }
+            hr{
+                margin-top: -1%;
+                height: 5px;
+                width: 70%;
+                background: rgb(120,0,0);
+                text-decoration: none;
+                border-radius: 20px;
+                border-color: black;
+            }
+            .SDG1{
+                width: 20%;
+                height: 20%;
+                margin-left: 10%;
+                margin-top: 3%;
+            }
+            .funFact{
+                position: absolute;
+                margin-top: -20%;
+                margin-left: 30%;
+            }
+
+            h3{
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: large;
+            }
+
+        </style>
+        
+    </head>
+    <body>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="btn">
+            <a href="Homepage.html" class="hover"><i class="fa fa-fw fa-home"></i>Home</a>
+            <a href="Poverty.html" class="hover">Poverty</a>
+            <a href="Hunger.html" class="hover">Hunger</a>
+        </div>
+        <h1 class="title">Poverty</h1>
+        <hr>
+        <img src="povertySDG.png" class="SDG1">
+        <div class="funFact">
+            <h3>Interesting Fact: 119-124 million people were pushed back into extreme poverty due to Covid.</h3>
+        </div>
+        <hr style="margin-top: 2%;">
+        <canvas id="povertyChart" width="70%" height="40%"></canvas>
+        <script type="text/javascript">
+            time = [1981, 1984, 1987, 1990, 1993, 1996, 1999, 2002, 2005, 2008, 2011];
+            percentage = [70,67,65,65,62,60,57,54,47,41,37];
+
+            new Chart("povertyChart", 
+            {
+                type: "line",
+                data: 
+                {
+                    labels: time,
+                    datasets: 
+                    [{
+                        label: "Percentage of individuals living with under 2$ a day in Developing countries",
+                        fill: false,
+                        lineTension: 0,
+                        backgroundColor: "rgba(255,0,0,1.0)",
+                        borderColor: "rgba(255,0,0,0.5)",
+                        data: percentage
+                    }]
+                },
+                options: 
+                {
+                    legend: 
+                    {
+                        display: true,
+                        position: "right"
+                    },
+                    scales: 
+                    {
+                        yAxes: 
+                        [{
+                            scaleLabel: {display: true,labelString: 'Percentage of population living under 2$ a day'}
+                        }],
+                        xAxes: 
+                        [{
+                            scaleLabel: {display: true,labelString: 'Year'}
+                        }]
+                    },
+                    title: 
+                    {
+                        display: true,
+                        text: "Poverty in the developing world from 1981 to 2011"
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
